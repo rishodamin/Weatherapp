@@ -8,6 +8,7 @@ def index(req):
     data = {"city": ''}
     if req.method=='POST':
         city = req.POST['city']
+        city = city.strip()
         try:
             res = reqst.urlopen(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid=cb771e45ac79a4e8e2205c0ce66ff633').read()
         except:
